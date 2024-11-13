@@ -1,6 +1,4 @@
 fun main() {
-    println("TEST")
-    //val almacen matriz 5x5
 
     val agua1 = AguaMineral (1, 1.5, 0.25,"Fuente primavera", "La Vera" )
     val agua2 = AguaMineral (2, 1.5, 0.73,"Cabreiroa", "Verin" )
@@ -12,4 +10,22 @@ fun main() {
     val bebidaAzucar3 = BebidasAzucaradas (8, 0.50,1.62,"Fuze Tea", 4.3,false)
     val bebidaAzucar4 = BebidasAzucaradas (9, 0.50,1.25,"Burn", 15.0,true)
     val bebidaAzucar5 = BebidasAzucaradas (10, 0.33,0.66,"7Up", 4.7,false)
+
+    val almacen = Almacen()
+    almacen.mostrarBebida()
+    almacen.agregarBebida(agua1)
+    almacen.agregarBebida(agua2)
+    almacen.agregarBebida(agua3)
+    almacen.agregarBebida(agua4)
+    almacen.agregarBebida(agua5)
+    almacen.agregarBebida(bebidaAzucar5)
+    almacen.agregarBebida(bebidaAzucar1)
+    almacen.agregarBebida(bebidaAzucar3)
+    almacen.eliminarBebida(5)
+    almacen.mostrarBebida()
+
+    println( almacen.calcularPrecio("Coca Cola"))
+    println( almacen.calcularPrecio(3))
+    println( almacen.calcularPrecio())
+
 }

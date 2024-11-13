@@ -1,4 +1,4 @@
-open class Bebidas (val id: Int, val litros: Double, val precio: Double, val marca: String) {
+open class Bebidas (val id: Int, val litros: Double, var precio: Double, val marca: String) {
     open fun calcularPrecio(): Double = precio
 
     open fun mostrar(): String {
