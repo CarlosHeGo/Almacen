@@ -11,9 +11,9 @@ class Almacen (val filas: Int = 5, val columnas: Int = 5) {
         else {
             var bebidaAgregada = false
             for (fila in estanterias.indices){
-                for (posicion in estanterias[fila].indices){
-                    if(estanterias[fila][posicion] == null){
-                        estanterias[fila][posicion] = bebida
+                for (columna in estanterias[fila].indices){
+                    if(estanterias[fila][columna] == null){
+                        estanterias[fila][columna] = bebida
                         println("Insertada ${bebida.marca} con éxito")
                         bebidaAgregada = true
                         break
@@ -29,8 +29,8 @@ class Almacen (val filas: Int = 5, val columnas: Int = 5) {
 
     fun existeId(id: Int): Boolean{
         for(fila in estanterias){
-            for(posicion in fila){
-                if(posicion?.id == id)
+            for(columna in fila){
+                if(columna?.id == id)
                     return true
             }
         }
@@ -40,9 +40,9 @@ class Almacen (val filas: Int = 5, val columnas: Int = 5) {
     fun eliminarBebida(id: Int){
         var hayBebida = false
         for (fila in estanterias.indices){
-            for (posicion in estanterias[fila].indices){
-                if(estanterias[fila][posicion]?.id == id){
-                    estanterias[fila][posicion] = null
+            for (columna in estanterias[fila].indices){
+                if(estanterias[fila][columna]?.id == id){
+                    estanterias[fila][columna] = null
                     hayBebida = true
                     println("Bebida con ID $id eliminada con éxito")
                 }
@@ -55,13 +55,13 @@ class Almacen (val filas: Int = 5, val columnas: Int = 5) {
     fun mostrarBebida(){
         var hayBebida = false
         for (fila in estanterias.indices){
-            for (posicion in estanterias[fila].indices){
-                val bebida = estanterias[fila][posicion]
+            for (columna in estanterias[fila].indices){
+                val bebida = estanterias[fila][columna]
                 if (bebida != null){
                     if (bebida is AguaMineral)
-                        println("En la posicion [$fila][$posicion]: Agua mineral con ${bebida.mostrar()}")
+                        println("En la posicion [$fila][$columna]: Agua mineral con ${bebida.mostrar()}")
                     else if (bebida is BebidasAzucaradas)
-                        println("En la posicion [$fila][$posicion]: Bebida azucarada con ${bebida.mostrar()}")
+                        println("En la posicion [$fila][$columna]: Bebida azucarada con ${bebida.mostrar()}")
                     hayBebida = true
                 }
             }
