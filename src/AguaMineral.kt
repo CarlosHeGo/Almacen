@@ -3,6 +3,6 @@ class AguaMineral (id: Int, litros: Double, precio: Double, marca: String, priva
         return precio
     }
     override fun mostrar(): String {
-        return super.mostrar() + "/ Origen: $origen"
+        return super.mostrar() + ", Origen: $origen"
     }
 }

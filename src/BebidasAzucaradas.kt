@@ -5,6 +5,6 @@ class BebidasAzucaradas (id: Int, litros: Double, precio: Double, marca: String,
         } else precio
     }
     override fun mostrar(): String {
-        return super.mostrar() + " / Porcentaje de azucar: $porcetajeAzucar % / Promoción? $promocion"
+        return super.mostrar() + ", Porcentaje de azucar: $porcetajeAzucar%, ¿Promoción? $promocion"
     }
 }

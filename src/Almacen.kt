@@ -6,7 +6,7 @@ class Almacen (val filas: Int = 5, val columnas: Int = 5) {
 
     fun agregarBebida(bebida: Bebidas){
         if(existeId(bebida.id)){
-            println("No se puede agregar bebida, ya se encuentra en las estanterias el ID ${bebida.id} (${bebida.marca}).")
+            println("ERROR. No se puede agregar ${bebida.marca}, ya se encuentra en las estanterias el ID ${bebida.id}.")
         }
         else {
             var bebidaAgregada = false
@@ -58,10 +58,12 @@ class Almacen (val filas: Int = 5, val columnas: Int = 5) {
             for (posicion in estanterias[fila].indices){
                 val bebida = estanterias[fila][posicion]
                 if (bebida != null){
-                    println("En la posicion [$fila][$posicion]: Agua mineral con ${bebida.mostrar()}")
+                    if (bebida is AguaMineral)
+                        println("En la posicion [$fila][$posicion]: Agua mineral con ${bebida.mostrar()}")
+                    else if (bebida is BebidasAzucaradas)
+                        println("En la posicion [$fila][$posicion]: Bebida azucarada con ${bebida.mostrar()}")
                     hayBebida = true
                 }
-
             }
         }
         if(!hayBebida)
@@ -78,8 +80,8 @@ class Almacen (val filas: Int = 5, val columnas: Int = 5) {
                 }
             }
         }
+        println("El precio total de todas las bebidas del almacén es de : $precioTotal€")
         return precioTotal
-
     }
 
     //calcula el precio de una marca
@@ -92,7 +94,7 @@ class Almacen (val filas: Int = 5, val columnas: Int = 5) {
                 }
             }
         }
-
+        println("El precio total de las bebidas de la marca $marca es de : $precioTotal€")
         return precioTotal
     }
 
@@ -108,7 +110,7 @@ class Almacen (val filas: Int = 5, val columnas: Int = 5) {
                 precioTotal += bebida.calcularPrecio()
             }
         }
-        println("El precio total de las bebidas de la columna $columna es de : $precioTotal €")
+        println("El precio total de las bebidas de la columna $columna es de : $precioTotal€")
         return precioTotal
 
     }
